@@ -1,0 +1,29 @@
+{
+  "name": "plant-ecommerce",
+  "version": "1.0.0",
+  "description": "Plant & Garden Ecommerce Website",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev-setup": "cd server && npm run setup-db && cd .. && npm run dev",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "ecommerce",
+    "plants",
+    "react",
+    "express",
+    "sqlite"
+  ],
+  "author": "",
+  "license": "MIT"
+}

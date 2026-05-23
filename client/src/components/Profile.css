@@ -1,0 +1,168 @@
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.profile-header {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.profile-header h2 {
+  color: #2d5016;
+  margin-bottom: 1rem;
+}
+
+.user-info p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.orders-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.orders-section h3 {
+  color: #2d5016;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.order-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 2rem;
+  background: #fafafa;
+  transition: box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.order-id {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2d5016;
+}
+
+.order-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.order-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.order-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.order-details p strong {
+  color: #2d5016;
+}
+
+.order-status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #e8f5e8;
+  color: #2d5016;
+}
+
+.order-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2d5016;
+}
+
+/* Empty state styling */
+.no-orders {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.no-orders h4 {
+  margin-bottom: 1rem;
+  color: #999;
+}
+
+/* Loading state */
+.loading-orders {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+  }
+  
+  .profile-header, .orders-section {
+    padding: 1.5rem;
+  }
+  
+  .order-item {
+    padding: 1.5rem;
+  }
+  
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .order-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .order-id {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-list {
+    gap: 1.5rem;
+  }
+  
+  .order-item {
+    padding: 1rem;
+  }
+}

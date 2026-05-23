@@ -1,0 +1,238 @@
+/* Home Page Styles */
+.home {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 500px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.cta-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(45, 90, 39, 0.3);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/* Features Section */
+.features {
+  background-color: var(--white);
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.feature p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Categories Section */
+.categories {
+  padding: 80px 0;
+  background-color: var(--background-color);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background-color: var(--white);
+  padding: 40px 30px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: var(--transition);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  color: var(--text-color);
+}
+
+.category-emoji {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.category-name {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.category-description {
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* Testimonial Section */
+.testimonial {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 60px 0;
+  text-align: center;
+}
+
+.testimonial-quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 15px;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-image img {
+    height: 300px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .testimonial-quote {
+    font-size: 1.1rem;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .category-card {
+    padding: 30px 20px;
+  }
+  
+  .category-emoji {
+    font-size: 3rem;
+  }
+}
