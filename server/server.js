@@ -5,6 +5,8 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -32,6 +34,9 @@ const db = new sqlite3.Database('./ecommerce.db', (err) => {
     initializeDatabase();
   }
 });
+
+// Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Import routes
 const authRoutes = require('./routes/auth');
