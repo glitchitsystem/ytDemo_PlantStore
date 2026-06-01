@@ -8,6 +8,9 @@ export class ProductsPage {
   readonly modalViewCartLink: Locator;
   readonly modalContinueShoppingBtn: Locator;
   readonly modalCloseBtn: Locator;
+  readonly modalProductName: Locator;
+  readonly modalProductPrice: Locator;
+  readonly modalMaxReachedMessage: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,6 +20,9 @@ export class ProductsPage {
     this.modalViewCartLink = page.locator('.view-cart');
     this.modalContinueShoppingBtn = page.locator('.continue-shopping');
     this.modalCloseBtn = page.locator('.modal-close');
+    this.modalProductName = page.locator('.modal-content .product-details h4');
+    this.modalProductPrice = page.locator('.modal-content .product-price');
+    this.modalMaxReachedMessage = page.locator('.modal-content .field-error');
   }
 
   async goto() {
@@ -30,9 +36,21 @@ export class ProductsPage {
     return text?.trim() ?? '';
   }
 
+  /** Returns the product name (h3.product-name) for the card at the given index */
+  async getProductNameByIndex(index: number): Promise<string> {
+    const text = await this.productCards.nth(index).locator('.product-name').textContent();
+    return text?.trim() ?? '';
+  }
+
   /** Clicks "Add to Cart" on the first product and waits for the modal */
   async addFirstProductToCart() {
     await this.productCards.first().locator('.add-to-cart-btn').click();
+    await this.modalContent.waitFor({ state: 'visible' });
+  }
+
+  /** Clicks "Add to Cart" on the nth product card (0-indexed) and waits for the modal */
+  async addProductToCartByIndex(index: number) {
+    await this.productCards.nth(index).locator('.add-to-cart-btn').click();
     await this.modalContent.waitFor({ state: 'visible' });
   }
 
