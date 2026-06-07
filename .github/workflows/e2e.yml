@@ -35,5 +35,5 @@ jobs:
         run: |
           cd server && node server.js &
           npx serve -s client/build -l 3000 &
-          npx wait-on http-get://localhost:5001 http-get://localhost:3000 --timeout 60000
+          npx wait-on http-get://localhost:5001/api/products http-get://localhost:3000 --timeout 60000
           npx playwright test
