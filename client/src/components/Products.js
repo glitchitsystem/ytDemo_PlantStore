@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
 import ProductCard from './ProductCard';
 import './Products.css';
 
@@ -14,9 +13,7 @@ const Products = () => {
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get('category');
 
-  const { addToCart } = useCart();
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
       setLoading(true);
       // Use relative path - proxy will handle routing to backend
@@ -48,11 +45,11 @@ const Products = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [categoryParam]);
 
   useEffect(() => {
     fetchProducts();
-  }, []); // Only run once on mount, prevents infinite loop
+  }, [fetchProducts]);
 
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);

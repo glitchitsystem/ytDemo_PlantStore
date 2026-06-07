@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import "./Header.css";
 
 const Header = () => {
-  const { cartItems, getTotalItems } = useCart();
+  const { getTotalItems } = useCart();
   const { user, logout } = useAuth();
   const location = useLocation();
 

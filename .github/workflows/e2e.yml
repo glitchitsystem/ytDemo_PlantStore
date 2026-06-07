@@ -1,0 +1,39 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [cicd]
+  pull_request:
+    branches: [cicd]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install all dependencies
+        run: npm run install-all
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Initialize database
+        run: cd server && npm run setup-db
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Start app and run E2E tests
+        run: |
+          cd server && node server.js &
+          npx serve -s client/build -l 3000 &
+          npx wait-on http://localhost:5001 http://localhost:3000
+          npx playwright test
