@@ -426,6 +426,13 @@ app.post('/api/orders', async (req, res) => {
   );
 });
 
+// Serve React build when it exists (CI / production)
+const buildPath = path.join(__dirname, '../client/build');
+if (require('fs').existsSync(buildPath)) {
+  app.use(express.static(buildPath));
+  app.get('*', (req, res) => res.sendFile(path.join(buildPath, 'index.html')));
+}
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

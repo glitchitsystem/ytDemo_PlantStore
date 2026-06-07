@@ -32,8 +32,9 @@ jobs:
         run: npm run build
 
       - name: Start app and run E2E tests
+        env:
+          BASE_URL: http://localhost:5001
         run: |
           cd server && node server.js &
-          npx serve -s client/build -l 3000 &
-          npx wait-on http-get://localhost:5001/api/products http-get://localhost:3000 --timeout 60000
+          npx wait-on http-get://localhost:5001/api/products --timeout 60000
           npx playwright test
